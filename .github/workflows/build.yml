@@ -46,10 +46,9 @@ jobs:
         run: go build -o SysInfo.exe
 
       # Setp 8: Remove build logs from SysInfo.exe and compress it using UPX
-      - name: strip and compress the exe file7
+      - name: strip the exe file
         run: |
           strip SysInfo.exe
-          upx --best --lzma SysInfo.exe
 
       # Step 8: Install python packages requird by main.py
       - name: Install python dependencies
@@ -59,10 +58,9 @@ jobs:
       - name: build exe from main.py
         run: pyinstaller --onefile --add-data "SysInfo.exe;." main.py
 
-      # Step 10: Strip and compress the exe using UPX
-      - name: strip and compress the exe
+      # Step 10: compress the exe using UPX
+      - name: compress the exe
         run: |
-          strip ./dist/main.exe
           upx --best --lzma ./dist/main.exe
 
       # Step 11: Uoload the exe file as an adtifact
