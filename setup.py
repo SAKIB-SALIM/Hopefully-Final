@@ -20,5 +20,12 @@ def place(list_dic,):
         print(config)
         w.write(config)
 
-place(json.load(open('hooks.json')))
+def crt_config(list_dic):
+    webhooks = [dic.get('URL') for dic in list_dic]
+    config = f"webhooks={webhooks}"
+    with open('config.py','w') as w:
+        w.write(config)
 
+json = json.load(open('hooks.json'))
+crt_config(json)
+place(json)
