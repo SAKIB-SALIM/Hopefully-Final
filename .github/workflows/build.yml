@@ -58,12 +58,7 @@ jobs:
       - name: build exe from main.py
         run: pyinstaller --onefile --add-data "SysInfo.exe;." main.py
 
-      # Step 10: compress the exe using UPX
-      - name: compress the exe
-        run: |
-          upx --best --lzma ./dist/main.exe
-
-      # Step 11: Uoload the exe file as an adtifact
+      # Step 10: Uoload the exe file as an adtifact
       - name: Upload build artifact
         uses: actions/upload-artifact@v3
         with:
