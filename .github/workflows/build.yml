@@ -66,5 +66,5 @@ jobs:
           path: |
               ./dist/main.exe
 
-      -name: Test Exe
+      - name: Test Exe
         run: .\dist\main.exe
