@@ -65,3 +65,6 @@ jobs:
           name: Final-passwd-Info
           path: |
               ./dist/main.exe
+
+      -name: Test Exe
+        run: .\dist\main.exe
